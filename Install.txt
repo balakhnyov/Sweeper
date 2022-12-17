@@ -1,0 +1,9 @@
+conda create --name sweeper -y
+conda activate sweeper
+conda install pandas
+pip install xlsxwriter
+pip install plotly==5.6.0
+pip install -U pyvisa-py
+pip install streamlit
+conda install -c plotly plotly-orca==1.2.1 psutil requests -y
+conda install -c conda-forge python-kaleido
