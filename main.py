@@ -8,7 +8,7 @@ import plotly.graph_objects as go
 import pyvisa
 
 st.set_page_config(page_title="Sweeper")
-test = False
+test = True
 default_folder = "C:\\Users\\Lab-Nano\\Desktop\\Sweeper_meas"
 inst_address = "USB0::0x05E6::0x2450::04505744::INSTR"
 
@@ -45,7 +45,7 @@ def get_measures(test=False, filename=None):
 
 def measure_on(df):
     df["Light"] = "Disabled"
-    df2 = get_measures(test=test, filename="4ir.csv")
+    df2 = get_measures(test=test, filename="K2 175 IR.csv")
     df2["Light"] = "Enabled"
     df = pd.concat([df, df2], axis=0)
     st.session_state["df"] = df
@@ -53,7 +53,7 @@ def measure_on(df):
 
 def measure_off(df):
     df["Light"] = "Enabled"
-    df2 = get_measures(test=test, filename="4ir.csv")
+    df2 = get_measures(test=test, filename="K2 175 IR.csv")
     df2["Light"] = "Disabled"
     df = pd.concat([df2, df], axis=0)
     st.session_state["df"] = df
@@ -270,7 +270,7 @@ if measure:
             + str(num)
             + ")"
         )
-    st.session_state["df"] = get_measures(test=test, filename="4.csv")
+    st.session_state["df"] = get_measures(test=test, filename="K2 175.csv")
 
 
 if "df" in st.session_state:
